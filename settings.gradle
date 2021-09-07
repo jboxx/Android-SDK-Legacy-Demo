@@ -1,0 +1,10 @@
+include ':appnavigation'
+include ':halloeffectgl'
+include ':basicglsurfaceview'
+include ':wiktionary'
+include ':weatherlistwidget'
+include ':widgetpreview'
+include ':KeyChainDemo'
+include ':renderscriptdemo'
+include ':softkeyboarddemo'
+rootProject.name = "Android-Legacy-Demo"

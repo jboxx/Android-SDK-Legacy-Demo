@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="io.jboxx.research.wiktionary">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="4" />
+
+    <meta-data android:name="android.app.default_searchable" android:value=".LookupActivity" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.AndroidLegacyDemo" >
+
+        <uses-library android:name="org.apache.http.legacy" android:required="true"
+            tools:targetApi="eclair" />
+
+        <!-- Browser-like Activity to navigate dictionary definitions  -->
+        <activity
+            android:name=".LookupActivity"
+            android:theme="@style/LookupTheme"
+            android:launchMode="singleTop"
+            android:configChanges="orientation|keyboardHidden">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="wiktionary" android:host="lookup" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+        </activity>
+
+        <!-- Broadcast Receiver that will process AppWidget updates -->
+        <receiver android:name=".WordWidget" android:label="@string/widget_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_word" />
+        </receiver>
+
+        <!-- Service to perform web API queries -->
+        <service android:name=".WordWidget$UpdateService" />
+
+    </application>
+
+</manifest>

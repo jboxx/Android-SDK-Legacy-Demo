@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.jboxx.research.appnavigation">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidLegacyDemo">
+
+        <activity android:name=".AppNavHomeActivity"
+            android:label="@string/app_nav_home_label">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".SimpleUpActivity"
+            android:label="@string/simple_up_label"
+            android:parentActivityName=".AppNavHomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AppNavHomeActivity" />
+        </activity>
+
+        <activity android:name=".PeerActivity"
+            android:label="@string/peer_label"
+            android:parentActivityName=".AppNavHomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AppNavHomeActivity" />
+        </activity>
+
+        <activity android:name=".ViewFromOtherTaskActivity"
+            android:label="@string/view_from_other_task_label"
+            android:parentActivityName=".AppNavHomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AppNavHomeActivity" />
+        </activity>
+
+        <activity android:name=".OutsideTaskActivity"
+            android:label="@string/outside_task_label"
+            android:theme="@style/Theme.Light"
+            android:taskAffinity="io.jboxx.research.appnavigation.outsidetask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ContentViewActivity"
+            android:label="@string/content_view_label"
+            android:parentActivityName=".ContentCategoryActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/x-example" />
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ContentCategoryActivity" />
+        </activity>
+
+        <activity android:name=".ContentCategoryActivity"
+            android:label="@string/content_category_label"
+            android:parentActivityName=".AppNavHomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AppNavHomeActivity" />
+        </activity>
+
+        <activity android:name=".NotificationsActivity"
+            android:label="@string/notifications_label"
+            android:parentActivityName=".AppNavHomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AppNavHomeActivity" />
+        </activity>
+
+        <activity android:name=".InterstitialMessageActivity"
+            android:label="@string/interstitial_label"
+            android:theme="@style/Theme.Dialog"
+            android:launchMode="singleTask"
+            android:excludeFromRecents="true"
+            android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        
+    </application>
+
+</manifest>

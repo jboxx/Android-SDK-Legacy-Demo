@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">WidgetPreview</string>
+
+    <string name="application_label">Widget Preview</string>
+    <string name="saving_preview">Saving widget preview...</string>
+    <string name="preview_saved">Widget preview saved!</string>
+    <string name="no_preview">Please take a snapshot first</string>
+    <string name="preview_save_error">Error saving preview</string>
+    <string name="configure_error">Error configuring, no configuration activity found</string>
+    <string name="email_subject">Widget preview</string>
+    <string name="email_body">Attached is the preview of your AppWidget</string>
+
+    <string name="snapshot_button">Take Snapshot</string>
+    <string name="email_button">Email Preview</string>
+</resources>
